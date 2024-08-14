@@ -9,7 +9,7 @@ class Cliente:
         if not email:
             raise ValueError("\nO campo e-mail precisa ser preenchido")
         if not fone:
-            raise ValueError("\nO campo Telefone precisa ser preenchido")
+            raise ValueError("\nO campo telefone precisa ser preenchido")
 
         self.__id = id
         self.__nome = nome
@@ -19,16 +19,20 @@ class Cliente:
     def __str__(self):
         return f"ID: {self.__id}, Nome: {self.__nome}, E-mail: {self.__email}, Telefone: {self.__fone}"
 
-    # Métodos de acesso (getters e setters)
     def get_id(self):
         return self.__id
+    
+    def set_id(self, id):
+        if not isinstance(id, int) or id <= 0:
+            raise ValueError("\nID inválido, informe outro número.")
+        self.__id = id
 
     def get_nome(self):
         return self.__nome
     
     def set_nome(self, nome):
         if not nome:
-            raise ValueError("O campo nome precisa ser preenchido") 
+            raise ValueError("\nO campo nome precisa ser preenchido") 
         self.__nome = nome
 
     def get_email(self):
@@ -36,7 +40,7 @@ class Cliente:
     
     def set_email(self, email):
         if not email:
-            raise ValueError("O campo e-mail precisa ser preenchido")
+            raise ValueError("\nO campo e-mail precisa ser preenchido")
         self.__email = email
     
     def get_fone(self):
@@ -44,7 +48,7 @@ class Cliente:
     
     def set_fone(self, fone):
         if not fone:
-            raise ValueError("O campo fone precisa ser preenchido")
+            raise ValueError("\nO campo telefone precisa ser preenchido")
         self.__fone = fone
 
 
@@ -53,7 +57,7 @@ class Categoria:
         if not isinstance(id, int) or id <= 0:
             raise ValueError("\nID inválido, informe outro número.")
         if not descricao:
-            raise ValueError("\nO campo descrição precisa ser preenchido")
+            raise ValueError("\nO campo descrição precisa ser preenchido.")
         
         self.__id = id
         self.__descricao = descricao
@@ -61,16 +65,20 @@ class Categoria:
     def __str__(self):
         return f"Categoria [ID: {self.__id}, Descrição: {self.__descricao}]"
     
-    # Métodos de acesso (getters e setters)
     def get_id(self):
         return self.__id
+    
+    def set_id(self, id):
+        if not isinstance(id, int) or id <= 0:
+            raise ValueError("\nID inválido, informe outro número.")
+        self.__id = id
 
     def get_descricao(self):
         return self.__descricao
 
     def set_descricao(self, descricao):
         if not descricao:
-            raise ValueError("O campo descrição precisa ser preenchido")
+            raise ValueError("\nO campo descrição precisa ser preenchido")
         self.__descricao = descricao
 
 
@@ -80,8 +88,8 @@ class Produto:
             raise ValueError("\nID inválido, informe outro número.")
         if not descricao:
             raise ValueError("\nO campo descrição precisa ser preenchido")
-        if not isinstance(preco, (int, float)) or preco < 0:
-            raise ValueError("\nO campo preço precisa ser um número positivo")
+        if not isinstance(preco, (int, float)) or preco <= 0:
+            raise ValueError("\nO campo preço precisa ser um valor positivo")
         if not isinstance(estoque, int) or estoque < 0:
             raise ValueError("\nO campo estoque precisa ser um número inteiro positivo")
         if not isinstance(idCategoria, int) or idCategoria <= 0:

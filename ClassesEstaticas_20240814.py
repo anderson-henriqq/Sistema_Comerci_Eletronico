@@ -1,6 +1,6 @@
 import json
 from datetime import datetime
-from Classes import Cliente, Venda, VendaItem, Produto, Categoria
+from Classes_20240814 import Cliente, Venda, VendaItem, Produto, Categoria
 
 class Clientes:
     __clientes = []
