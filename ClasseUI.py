@@ -7,67 +7,97 @@ class UI:
         while True:
             UI.menu()
 
-            operation = input("Escolha uma opção: ")
+            operation = input("Selecione a opção desejada: ")
 
-            if operation == '1':    # Listar Clientes
-                UI.Cliente_Listar()
+            if operation == '1':
+                print("\nVocê selecionou a opção CLIENTES. O que deseja fazer?")
+                print("\t1 - Listar Clientes")
+                print("\t2 - Inserir Cliente")
+                print("\t3 - Atualizar Cliente")
+                print("\t4 - Excluir Cliente")
+                
+                while True:
+                    op = int(input("Escolha uma opção: "))
+                    
+                    if op == 1:
+                        UI.Cliente_Listar()
+                        break
+                    elif op == 2:
+                        UI.Cliente_Inserir()
+                        break
+                    elif op == 3:
+                        UI.Cliente_Atualizar()
+                        break
+                    elif op == 4:
+                        UI.Cliente_Excluir()
+                        break
+                    else:
+                        print("Opção inválida, tente novamente.")
             
-            elif operation == '2':  # Inserir Cliente
-                UI.Cliente_Inserir()
+            elif operation == '2':
+                print("\nVocê selecionou a opção CATEGORIAS. O que deseja fazer?")
+                print("\t1 - Listar Categorias")
+                print("\t2 - Inserir Categoria")
+                print("\t3 - Atualizar Categoria")
+                print("\t4 - Excluir Categoria")
+                
+                while True:
+                    op = int(input("Escolha uma opção: "))
+                    
+                    if op == 1:
+                        UI.Categoria_Listar()
+                        break
+                    elif op == 2:
+                        UI.Categoria_Inserir()
+                        break
+                    elif op == 3:
+                        UI.Categoria_Atualizar()
+                        break
+                    elif op == 4:
+                        UI.Categoria_Excluir()
+                        break
+                    else:
+                        print("Opção inválida, tente novamente.")
 
-            elif operation == '3':  # Atualizar Cliente
-                UI.Cliente_Atualizar()
+            elif operation == '3':
+                print("\nVocê selecionou a opção PRODUTOS. O que deseja fazer?")
+                print("\t1 - Listar Produtos")
+                print("\t2 - Inserir Produto")
+                print("\t3 - Atualizar Produto")
+                print("\t4 - Excluir Produto")
+                
+                while True:
+                    op = int(input("Escolha uma opção: "))
+                    
+                    if op == 1:
+                        UI.Produto_Listar()
+                        break
+                    elif op == 2:
+                        UI.Produto_Inserir()
+                        break
+                    elif op == 3:
+                        UI.Produto_Atualizar()
+                        break
+                    elif op == 4:
+                        UI.Produto_Excluir()
+                        break
+                    else:
+                        print("Opção inválida, tente novamente.")
 
-            elif operation == '4':  # Excluir Cliente
-                UI.Cliente_Excluir()
-
-            elif operation == '5':  # Listar Categorias
-                UI.Categoria_Listar()
-
-            elif operation == '6':  # Inserir Categoria
-                UI.Categoria_Inserir()
-
-            elif operation == '7':  # Atualizar Categoria
-                UI.Categoria_Atualizar()
-
-            elif operation == '8':  # Excluir Categoria
-                UI.Categoria_Excluir()
-
-            elif operation == '9':  # Listar Produtos
-                UI.Produto_Listar()
-
-            elif operation == '10':  # Inserir Produto
-                UI.Produto_Inserir()
-
-            elif operation == '11':  # Atualizar Produto
-                UI.Produto_Atualizar()
-
-            elif operation == '12':  # Excluir Produto
-                UI.Produto_Excluir()
-
-            elif operation == '0':  # Finalizar
-                print("Finalizando o programa.")
+            elif operation == '4':
+                print("Finalizando o programa...")
+                print(">>> SISTEMAS ENCERRADO COM SUCESSO! <<<")
                 break
             
             else:
-                print("Opção inválida.")
+                print("Opção inválida, tente novamente.")
 
     @staticmethod
     def menu():
-        print("\n:::::::::::::::::::::::::::::::::::::::")
-        print("1 - Listar Clientes")
-        print("2 - Inserir Cliente")
-        print("3 - Atualizar Cliente")
-        print("4 - Excluir Cliente")
-        print("5 - Listar Categorias")
-        print("6 - Inserir Categoria")
-        print("7 - Atualizar Categoria")
-        print("8 - Excluir Categoria")
-        print("9 - Listar Produtos")
-        print("10 - Inserir Produto")
-        print("11 - Atualizar Produto")
-        print("12 - Excluir Produto")
-        print("0 - Finalizar")
+        print("\n:::::::::::::::::::::::::::::::::::::::::::\n")
+        print(">>> BEM VINDO AO SISTEMA DE COMÉRCIO ELETRÔNICO <<<\n")
+        print("[ [1] - CLIENTES ]\t[ [2] - CATEGORIAS ]\n")
+        print("[ [3] - PRODUTOS ]\t[ [4] - ENCERRAR O SISTEMA ]")
 
     # Métodos para Clientes
     @staticmethod
