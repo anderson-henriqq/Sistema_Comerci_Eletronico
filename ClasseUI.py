@@ -60,29 +60,32 @@ class UI:
                         print("Opção inválida, tente novamente.")
 
             elif operation == '3':
-                print("\nVocê selecionou a opção PRODUTOS. O que deseja fazer?")
-                print("\t1 - Listar Produtos")
-                print("\t2 - Inserir Produto")
-                print("\t3 - Atualizar Produto")
-                print("\t4 - Excluir Produto")
-                
-                while True:
-                    op = int(input("Escolha uma opção: "))
+                if not Categorias.Listar():
+                            print("Nenhuma categoria cadastrada. Crie uma nova categoria primeiro.")
+                else:
+                    print("\nVocê selecionou a opção PRODUTOS. O que deseja fazer?")
+                    print("\t1 - Listar Produtos")
+                    print("\t2 - Inserir Produto")
+                    print("\t3 - Atualizar Produto")
+                    print("\t4 - Excluir Produto")
                     
-                    if op == 1:
-                        UI.Produto_Listar()
-                        break
-                    elif op == 2:
-                        UI.Produto_Inserir()
-                        break
-                    elif op == 3:
-                        UI.Produto_Atualizar()
-                        break
-                    elif op == 4:
-                        UI.Produto_Excluir()
-                        break
-                    else:
-                        print("Opção inválida, tente novamente.")
+                    while True:
+                        op = int(input("Escolha uma opção: "))
+                        
+                        if op == 1:
+                            UI.Produto_Listar()
+                            break
+                        elif op == 2:
+                            UI.Produto_Inserir()
+                            break
+                        elif op == 3:
+                            UI.Produto_Atualizar()
+                            break
+                        elif op == 4:
+                            UI.Produto_Excluir()
+                            break
+                        else:
+                            print("Opção inválida, tente novamente.")
 
             elif operation == '4':
                 print("Finalizando o programa...")
@@ -197,7 +200,11 @@ class UI:
         descricao = input("Digite a descrição do produto: ")
         preco = float(input("Digite o preço do produto: "))
         estoque = int(input("Digite a quantidade em estoque: "))
+        Categorias.Listar()
         idCategoria = input("Digite o ID da categoria do produto: ")
+        if not Categorias.Listar_Id(idCategoria):
+            print("Categoria não encontrada.")
+            return
         produto = Produto(id, descricao, preco, estoque, idCategoria)
         Produtos.Inserir(produto)
         print(f"Produto '{descricao}' cadastrado com sucesso.")
@@ -210,7 +217,11 @@ class UI:
             descricao = input("Digite a nova descrição (ou pressione Enter para manter): ")
             preco = input("Digite o novo preço (ou pressione Enter para manter): ")
             estoque = input("Digite a nova quantidade em estoque (ou pressione Enter para manter): ")
-            idCategoria = input("Digite o novo ID da categoria (ou pressione Enter para manter): ")
+            Categorias.Listar()
+            idCategoria = input("Digite o novo ID da Categoria (ou pressione Enter para manter): ")
+            if not Categorias.Listar_Id(idCategoria):
+                print("Categoria não encontrada.")
+                return
             Produtos.Atualizar(id, descricao=descricao, preco=preco, estoque=estoque, idCategoria=idCategoria)
             print(f"Produto '{id}' atualizado com sucesso.")
         else:
