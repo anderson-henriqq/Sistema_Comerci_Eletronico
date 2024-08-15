@@ -1,5 +1,5 @@
-from Classes_20240814 import Cliente, Categoria, Produto
-from ClassesEstaticas_20240814 import Clientes, Categorias, Produtos
+from Classes import Cliente, Categoria, Produto
+from ClassesEstaticas import Clientes, Categorias, Produtos
 
 class UI:
     @staticmethod
